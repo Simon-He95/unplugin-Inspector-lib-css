@@ -1,5 +1,5 @@
 ## vite-plugin-inspector-lib-css
-将库模式下的unocss样式打包注入到js和mjs文件中
+将库模式下的unocss样式打包注入到bundle
 
 ## Install
 ```bash
