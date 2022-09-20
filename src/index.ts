@@ -28,7 +28,6 @@ export default function vitePluginInspectorLibCss(options?: Record<string, any>)
         const cssCode = JSON.stringify(styles.replace(/\n/g, ' '))
         const insertStyle = `try{if(typeof document != 'undefined'){var elementStyle = document.createElement('style');elementStyle.appendChild(document.createTextNode(${cssCode}));document.head.appendChild(elementStyle);}}catch(e){console.error('vite-plugin-Inspector-lib-css', e);}`
         const { code } = bundle[name]
-
         fs.writeFile(outputPath, insertStyle + code, (err: any) => {
           if (err)
             throw err
@@ -40,7 +39,11 @@ export default function vitePluginInspectorLibCss(options?: Record<string, any>)
       handler(code: string) {
         if (!code.startsWith('// @unocss-include'))
           return code
-        createGenerator({}, defaultConfig).generate(code || '').then((result: any) => styles += `${result.getLayers()} `)
+        createGenerator({}, defaultConfig).generate(code || '').then((result: any) => {
+          const css = result.getLayers()
+          if (!styles.includes(css))
+            styles += `${css} `
+        })
       },
     },
   }
