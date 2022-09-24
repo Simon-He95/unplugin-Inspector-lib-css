@@ -1,6 +1,9 @@
 ## vite-plugin-inspector-lib-css
 将库模式下的unocss样式打包注入到bundle
 
+## Why
+在使用tsx写vue组件时，vite build将css注入js中，但unocss并未生产对应转换的css被一起注入,才有了这个库
+
 ## Install
 ```bash
 npm i vite-plugin-inspector-lib-css -D
