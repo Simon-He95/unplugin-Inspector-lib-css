@@ -28,7 +28,7 @@ export default function vitePluginInspectorLibCss(options?: Record<string, any>)
         const cssCode = JSON.stringify(styles.replace(/\n/g, ' '))
         const insertStyle = `try{if(typeof document != 'undefined'){var elementStyle = document.createElement('style');elementStyle.appendChild(document.createTextNode(${cssCode}));document.head.appendChild(elementStyle);}}catch(e){console.error('vite-plugin-Inspector-lib-css', e);}`
         const { code } = Object.values(bundle)[0] as any
-        fs.writeFile(outputPath, insertStyle + code, (err: any) => {
+        fs.writeFile(outputPath, `${insertStyle}\n${code}`, (err: any) => {
           if (err)
             throw err
         })
