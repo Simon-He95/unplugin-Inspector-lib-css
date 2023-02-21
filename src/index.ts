@@ -23,11 +23,11 @@ export default function vitePluginInspectorLibCss(options?: Record<string, any>)
       handler(options: any, bundle: any) {
         if (!styles)
           return
-        const name = options.entryFileNames
-        const outputPath = path.resolve(options.dir, name)
+
+        const outputPath = options.file || path.resolve(options.dir, options.entryFileNames)
         const cssCode = JSON.stringify(styles.replace(/\n/g, ' '))
         const insertStyle = `try{if(typeof document != 'undefined'){var elementStyle = document.createElement('style');elementStyle.appendChild(document.createTextNode(${cssCode}));document.head.appendChild(elementStyle);}}catch(e){console.error('vite-plugin-Inspector-lib-css', e);}`
-        const { code } = bundle[name]
+        const { code } = Object.values(bundle)[0] as any
         fs.writeFile(outputPath, insertStyle + code, (err: any) => {
           if (err)
             throw err
