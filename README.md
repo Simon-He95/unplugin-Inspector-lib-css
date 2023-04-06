@@ -9,17 +9,84 @@
 npm i vite-plugin-inspector-lib-css -D
 ```
 
-## Usage
-```js
-// vite.config.js
-import { defineConfig } from 'vite'
-import vitePluginInspectorLibCss from 'vite-plugin-inspector-lib-css'
+## 🌈 Usage
+
+<details>
+<summary>Vite</summary>
+
+```ts
+// vite.config.ts
+import { vitePluginTransformToUnocss } from 'unplugin-inspector-lib-css'
 export default defineConfig({
-  plugins: [
-    vitePluginInspectorLibCss()
-  ]
+  plugins: [vitePluginTransformToUnocss(/* options */)],
 })
 ```
+
+</details>
+<br>
+<details>
+<summary>Rollup</summary>
+
+```ts
+// rollup.config.js
+import { resolve } from 'path'
+import { rollupTransformToUnocss } from 'unplugin-inspector-lib-css'
+export default {
+  plugins: [rollupTransformToUnocss(/* options */)],
+}
+```
+
+</details>
+<br>
+<details>
+<summary>Webpack</summary>
+
+```ts
+// webpack.config.js
+module.exports = {
+  /* ... */
+  plugins: [
+    require('unplugin-inspector-lib-css').webpackTransformToUnocss({
+      /* options */
+    }),
+  ],
+}
+```
+
+</details>
+<br>
+<details>
+<summary>Vue CLI</summary>
+
+```ts
+// vue.config.js
+module.exports = {
+  configureWebpack: {
+    plugins: [
+      require('unplugin-inspector-lib-css').webpackTransformToUnocss({
+        /* options */
+      }),
+    ],
+  },
+}
+```
+
+</details>
+<br>
+<details>
+<summary>Esbuild</summary>
+
+```ts
+// esbuild.config.js
+import { build } from 'esbuild'
+import { esbuilPlugin } from 'unplugin-inspector-lib-css'
+
+build({
+  plugins: [esbuilPlugin(/* options */)],
+})
+```
+
+</details>
 
 ## Warning
 - ts | js | tsx | jsx 文件中头部需要加上// @unocss-include否则不会被注入

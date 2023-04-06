@@ -1,5 +1,5 @@
 {
-  "name": "vite-plugin-inspector-lib-css",
+  "name": "unplugin-inspector-lib-css",
   "type": "module",
   "version": "0.0.4",
   "packageManager": "pnpm@7.2.1",
@@ -7,12 +7,12 @@
   "author": "Simon He",
   "license": "MIT",
   "funding": "https://github.com/sponsors/Simon-He95",
-  "homepage": "https://github.com/Simon-He95/vite-plugin-Inspector-lib-css#readme",
+  "homepage": "https://github.com/Simon-He95/unplugin-Inspector-lib-css#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Simon-He95/vite-plugin-Inspector-lib-css.git"
+    "url": "git+https://github.com/Simon-He95/unplugin-Inspector-lib-css.git"
   },
-  "bugs": "https://github.com/Simon-He95/vite-plugin-Inspector-lib-css/issues",
+  "bugs": "https://github.com/Simon-He95/unplugin-Inspector-lib-css/issues",
   "keywords": [],
   "sideEffects": false,
   "exports": {
@@ -37,8 +37,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "unbuild",
-    "dev": "unbuild --stub",
+    "build": "tsup ./src/index.ts ./src/cli.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepublishOnly": "nr build",
@@ -54,14 +53,17 @@
     "@antfu/eslint-config": "^0.25.1",
     "@antfu/ni": "^0.16.2",
     "@antfu/utils": "^0.5.2",
+    "@rollup/pluginutils": "^5.0.2",
     "@types/node": "^18.0.0",
     "bumpp": "^8.2.1",
     "eslint": "^8.18.0",
     "esno": "^0.16.3",
     "pnpm": "^7.2.1",
     "rimraf": "^3.0.2",
+    "tsup": "^6.7.0",
     "typescript": "^4.7.4",
     "unbuild": "^0.7.4",
+    "unplugin": "^1.3.1",
     "vite": "^2.9.12",
     "vitest": "^0.15.1"
   }
