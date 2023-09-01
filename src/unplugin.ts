@@ -30,7 +30,7 @@ const unplugin = createUnplugin((options: Options = {}): any => {
 
           const outputPath = options.file || path.resolve(options.dir, typeof options.entryFileNames === 'string' ? options.entryFileNames : options.entryFileNames(options.chunkFileNames))
           const cssCode = JSON.stringify(styles.replace(/\n/g, ' '))
-          const insertStyle = `try{if(typeof document != 'undefined'){var elementStyle = document.createElement('style');elementStyle.appendChild(document.createTextNode(${cssCode}));document.head.appendChild(elementStyle);}}catch(e){console.error('vite-plugin-Inspector-lib-css', e);}`
+          const insertStyle = `try{if(typeof document != 'undefined'){var elementStyle = document.createElement('style');elementStyle.appendChild(document.createTextNode(${cssCode}));document.head.appendChild(elementStyle);}}catch(e){console.error('unplugin-Inspector-lib-css', e);}`
           const { code } = Object.values(bundle)[0] as any
           fs.writeFile(outputPath, `${insertStyle}
           ${code}`, 'utf-8')

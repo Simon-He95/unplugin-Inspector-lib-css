@@ -1,4 +1,4 @@
-## vite-plugin-inspector-lib-css
+## unplugin-inspector-lib-css
 将库模式下的unocss样式打包注入到bundle
 
 ## Why
@@ -6,7 +6,7 @@
 
 ## Install
 ```bash
-npm i vite-plugin-inspector-lib-css -D
+npm i unplugin-inspector-lib-css -D
 ```
 
 ## 🌈 Usage
@@ -99,7 +99,7 @@ build({
 
 
 ## :question: 问题
-[issues](https://github.com/Simon-He95/vite-plugin-inspector-lib-css/issues)
+[issues](https://github.com/Simon-He95/unplugin-inspector-lib-css/issues)
 
 ## 依赖
 `unocss`
