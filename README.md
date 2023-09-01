@@ -30,7 +30,7 @@ export default defineConfig({
 ```ts
 // rollup.config.js
 import { resolve } from 'path'
-import { rollupTransformToUnocss } from 'unplugin-inspector-lib-css'
+import { vitePlugn as rollupTransformToUnocss } from 'unplugin-inspector-lib-css'
 export default {
   plugins: [rollupTransformToUnocss(/* options */)],
 }
@@ -46,7 +46,7 @@ export default {
 module.exports = {
   /* ... */
   plugins: [
-    require('unplugin-inspector-lib-css').webpackTransformToUnocss({
+    require('unplugin-inspector-lib-css').webpackPlugin({
       /* options */
     }),
   ],
@@ -63,7 +63,7 @@ module.exports = {
 module.exports = {
   configureWebpack: {
     plugins: [
-      require('unplugin-inspector-lib-css').webpackTransformToUnocss({
+      require('unplugin-inspector-lib-css').webpackPlugin({
         /* options */
       }),
     ],
@@ -79,7 +79,7 @@ module.exports = {
 ```ts
 // esbuild.config.js
 import { build } from 'esbuild'
-import { esbuilPlugin } from 'unplugin-inspector-lib-css'
+import { vitePlugn as esbuilPlugin } from 'unplugin-inspector-lib-css'
 
 build({
   plugins: [esbuilPlugin(/* options */)],
