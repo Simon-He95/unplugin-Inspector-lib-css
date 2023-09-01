@@ -16,7 +16,7 @@ npm i unplugin-inspector-lib-css -D
 
 ```ts
 // vite.config.ts
-import { vitePluginTransformToUnocss } from 'unplugin-inspector-lib-css'
+import { vitePlugn as vitePluginTransformToUnocss } from 'unplugin-inspector-lib-css'
 export default defineConfig({
   plugins: [vitePluginTransformToUnocss(/* options */)],
 })
