@@ -1,7 +1,7 @@
 {
   "name": "unplugin-inspector-lib-css",
   "type": "module",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "packageManager": "pnpm@7.2.1",
   "description": "",
   "author": "Simon He",
