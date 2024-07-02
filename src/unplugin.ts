@@ -4,7 +4,7 @@ import { createUnplugin } from 'unplugin'
 import { createFilter } from '@rollup/pluginutils'
 import type { Options } from './types'
 
-const unplugin = createUnplugin((options: Options = {}): any => {
+export const unplugin = createUnplugin((options: Options = {}): any => {
   const filter = createFilter(options.include, options.exclude)
   let styles = ''
   const defaultConfig = Object.assign({
@@ -50,9 +50,4 @@ const unplugin = createUnplugin((options: Options = {}): any => {
     },
   ]
 })
-
-export const vitePlugin = unplugin.vite
-export const rollupPlugin = unplugin.rollup
-export const webpackPlugin = unplugin.webpack
-export const esbuildPlugin = unplugin.esbuild
 
