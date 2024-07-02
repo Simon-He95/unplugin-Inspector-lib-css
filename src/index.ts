@@ -1,4 +1,10 @@
-export * from './webpack'
-export * from './vite'
-export * from './esbuild'
+import webpackPlugin from './webpack'
+import vitePlugin from './vite'
+import esbuildPlugin from './esbuild'
 export * from './types'
+
+export {
+  webpackPlugin,
+  vitePlugin,
+  esbuildPlugin,
+}
