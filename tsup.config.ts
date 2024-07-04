@@ -2,10 +2,10 @@ import { defineConfig } from 'tsup'
 
 export default defineConfig({
   name: 'tsup',
-  target: 'esnext',
+  target: 'node14',
   format: ['cjs', 'esm'],
   clean: true,
-  external: ['vite', 'webpack', 'rollup', 'esbuild', 'fast-glob', 'unocss'],
+  external: ['vite', 'webpack', 'rollup', 'esbuild', 'fast-glob', 'unocss', '@unocss/config'],
   dts: {
     resolve: true,
     // build types for `src/index.ts` only
