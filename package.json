@@ -82,6 +82,7 @@
     "@antfu/utils": "^0.5.2",
     "@rollup/pluginutils": "^5.1.0",
     "@types/node": "^18.0.0",
+    "@unocss/config": "^0.61.0",
     "bumpp": "^8.2.1",
     "eslint": "^8.18.0",
     "esno": "^0.16.3",

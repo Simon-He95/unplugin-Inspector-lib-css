@@ -1,18 +1,14 @@
 import fs from 'fs/promises'
-import { createGenerator, presetAttributify, presetUno } from 'unocss'
+import { createGenerator } from 'unocss'
 import { createUnplugin } from 'unplugin'
 import { createFilter } from '@rollup/pluginutils'
+import { loadConfig } from '@unocss/config'
 import type { Options } from './types'
 
 export const unplugin = createUnplugin((options: Options = {}): any => {
   const filter = createFilter(options.include, options.exclude)
   let styles = ''
-  const defaultConfig = Object.assign({
-    presets: [
-      presetUno(),
-      presetAttributify(),
-    ],
-  }, options)
+  let config: any
   return [
     {
       name: 'unplugin-inspector-lib-css',
@@ -35,8 +31,10 @@ export const unplugin = createUnplugin((options: Options = {}): any => {
           ${code}`, 'utf-8')
         },
       },
-      transform(code: string) {
-        createGenerator({}, defaultConfig).generate(code || '').then((result) => {
+      async transform(code: string) {
+        if (!config)
+          ({ config } = await loadConfig())
+        createGenerator({}, config).generate(code || '').then((result) => {
           const match = result.getLayers().match(/\/\*\s*layer\:\s*default\s*\*\/\n(.*)/ms)
           if (!match)
             return
