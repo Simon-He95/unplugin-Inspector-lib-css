@@ -2,7 +2,7 @@
   "name": "unplugin-inspector-lib-css",
   "type": "module",
   "version": "0.0.12",
-  "packageManager": "pnpm@7.2.1",
+  "packageManager": "pnpm@7.33.7",
   "description": "",
   "author": "Simon He",
   "license": "MIT",
@@ -18,27 +18,27 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./vite": {
       "types": "./dist/vite.d.ts",
-      "require": "./dist/vite.cjs",
-      "import": "./dist/vite.js"
+      "import": "./dist/vite.js",
+      "require": "./dist/vite.cjs"
     },
     "./webpack": {
       "types": "./dist/webpack.d.ts",
-      "require": "./dist/webpack.cjs",
-      "import": "./dist/webpack.js"
+      "import": "./dist/webpack.js",
+      "require": "./dist/webpack.cjs"
     },
     "./esbuild": {
       "types": "./dist/esbuild.d.ts",
-      "require": "./dist/esbuild.cjs",
-      "import": "./dist/esbuild.js"
+      "import": "./dist/esbuild.js",
+      "require": "./dist/esbuild.cjs"
     }
   },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "typesVersions": {
     "*": {
@@ -73,26 +73,22 @@
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
-  "peerDependencies": {
-    "unocss": "^0.61.0"
+  "dependencies": {
+    "@unocss/config": "0.61.0",
+    "unocss": "0.61.0",
+    "unplugin": "^1.16.1",
+    "@rollup/pluginutils": "^5.1.4"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.25.1",
-    "@antfu/ni": "^0.16.2",
+    "@antfu/eslint-config": "^4.12.0",
+    "@antfu/ni": "^0.16.3",
     "@antfu/utils": "^0.5.2",
-    "@rollup/pluginutils": "^5.1.0",
-    "@types/node": "^18.0.0",
-    "@unocss/config": "^0.61.0",
+    "@types/node": "^18.19.87",
     "bumpp": "^8.2.1",
-    "eslint": "^8.18.0",
+    "eslint": "^9.25.1",
     "esno": "^0.16.3",
-    "pnpm": "^7.2.1",
-    "rimraf": "^3.0.2",
-    "tsup": "^8.1.0",
-    "typescript": "^4.7.4",
-    "unocss": "^0.61.0",
-    "unplugin": "^1.11.0",
-    "vite": "^5.3.2",
-    "vitest": "^1.6.0"
+    "tsup": "^8.4.0",
+    "typescript": "^4.9.5",
+    "vitest": "^3.1.2"
   }
 }

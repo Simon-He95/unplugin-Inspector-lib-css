@@ -29,7 +29,7 @@ export default defineConfig({
 
 ```ts
 // rollup.config.js
-import { resolve } from 'path'
+import { resolve } from 'node:path'
 import { vitePlugn as rollupTransformToUnocss } from 'unplugin-inspector-lib-css'
 export default {
   plugins: [rollupTransformToUnocss(/* options */)],
@@ -91,12 +91,8 @@ build({
 ## Warning
 - ts | js | tsx | jsx 文件中头部需要加上// @unocss-include否则不会被注入
 
-
-
-## :coffee: 
+## :coffee:
 <a href="https://github.com/Simon-He95/sponsor" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
-
-
 
 ## :question: 问题
 [issues](https://github.com/Simon-He95/unplugin-inspector-lib-css/issues)

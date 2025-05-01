@@ -17,10 +17,10 @@ async function vitePlugin() {
             return
           const outputPath
             = options.file
-            || `${options.dir}/${typeof options.entryFileNames === 'string'
-              ? options.entryFileNames
-              : options.entryFileNames(options.chunkFileNames)
-            }`
+              || `${options.dir}/${typeof options.entryFileNames === 'string'
+                ? options.entryFileNames
+                : options.entryFileNames(options.chunkFileNames)
+              }`
           const cssCode = JSON.stringify(styles.replace(/\n/g, ' '))
           const insertStyle = `try{if(typeof document != 'undefined'){var elementStyle = document.createElement('style');elementStyle.appendChild(document.createTextNode(${cssCode}));document.head.appendChild(elementStyle);}}catch(e){console.error('unplugin-Inspector-lib-css', e);}`
           const { code } = Object.values(bundle)[0] as any
@@ -40,7 +40,7 @@ async function vitePlugin() {
           .then((result) => {
             const match = result
               .getLayers()
-              .match(/\/\*\s*layer\:\s*default\s*\*\/\n(.*)/ms)
+              .match(/\/\*\s*layer:\s*default\s*\*\/\n(.*)/s)
             if (!match)
               return
             const css = match[1]

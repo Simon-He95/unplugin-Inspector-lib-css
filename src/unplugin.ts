@@ -1,9 +1,9 @@
-import fs from 'fs/promises'
-import { createGenerator } from 'unocss'
-import { createUnplugin } from 'unplugin'
+import type { Options } from './types'
+import fs from 'node:fs/promises'
 import { createFilter } from '@rollup/pluginutils'
 import { loadConfig } from '@unocss/config'
-import type { Options } from './types'
+import { createGenerator } from 'unocss'
+import { createUnplugin } from 'unplugin'
 
 export const unplugin = createUnplugin((options: Options = {}): any => {
   const filter = createFilter(options.include, options.exclude)
@@ -35,7 +35,7 @@ export const unplugin = createUnplugin((options: Options = {}): any => {
         if (!config)
           ({ config } = await loadConfig())
         createGenerator({}, config).generate(code || '').then((result) => {
-          const match = result.getLayers().match(/\/\*\s*layer\:\s*default\s*\*\/\n(.*)/ms)
+          const match = result.getLayers().match(/\/\*\s*layer:\s*default\s*\*\/\n(.*)/s)
           if (!match)
             return
           const css = match[1]
@@ -48,4 +48,3 @@ export const unplugin = createUnplugin((options: Options = {}): any => {
     },
   ]
 })
-
