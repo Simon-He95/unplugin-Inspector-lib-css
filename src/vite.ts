@@ -1,5 +1,5 @@
 import { loadConfig } from '@unocss/config'
-import { createGenerator } from 'unocss'
+import { createGenerator } from '@unocss/core'
 
 async function vitePlugin() {
   let styles = ''
@@ -34,8 +34,8 @@ async function vitePlugin() {
           })
         },
       },
-      transform(code: string) {
-        createGenerator({}, config)
+      async transform(code: string) {
+        (await createGenerator({}, config as any))
           .generate(code || '')
           .then((result) => {
             const match = result

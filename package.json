@@ -35,6 +35,16 @@
       "types": "./dist/esbuild.d.ts",
       "import": "./dist/esbuild.js",
       "require": "./dist/esbuild.cjs"
+    },
+    "./rspack": {
+      "types": "./dist/rspack.d.ts",
+      "import": "./dist/rspack.js",
+      "require": "./dist/rspack.cjs"
+    },
+    "./farm": {
+      "types": "./dist/farm.d.ts",
+      "import": "./dist/farm.js",
+      "require": "./dist/farm.cjs"
     }
   },
   "main": "./dist/index.js",
@@ -74,10 +84,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@rollup/pluginutils": "^5.1.4",
     "@unocss/config": "0.61.0",
-    "unocss": "0.61.0",
-    "unplugin": "^1.16.1",
-    "@rollup/pluginutils": "^5.1.4"
+    "@unocss/core": "66.1.0-beta.13",
+    "unplugin": "^1.16.1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.12.0",

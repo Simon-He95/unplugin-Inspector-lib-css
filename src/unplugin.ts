@@ -2,10 +2,10 @@ import type { Options } from './types'
 import fs from 'node:fs/promises'
 import { createFilter } from '@rollup/pluginutils'
 import { loadConfig } from '@unocss/config'
-import { createGenerator } from 'unocss'
+import { createGenerator } from '@unocss/core'
 import { createUnplugin } from 'unplugin'
 
-export const unplugin = createUnplugin((options: Options = {}): any => {
+export const unplugin = createUnplugin(async (options: Options = {}) => {
   const filter = createFilter(options.include, options.exclude)
   let styles = ''
   let config: any
@@ -32,18 +32,19 @@ export const unplugin = createUnplugin((options: Options = {}): any => {
         },
       },
       async transform(code: string) {
-        if (!config)
-          ({ config } = await loadConfig())
-        createGenerator({}, config).generate(code || '').then((result) => {
-          const match = result.getLayers().match(/\/\*\s*layer:\s*default\s*\*\/\n(.*)/s)
-          if (!match)
-            return
-          const css = match[1]
-          css.split('}\n').forEach((s) => {
-            if (!styles.includes(s))
-              styles += `${css}} `
+        ({ config } = await loadConfig());
+        (await createGenerator({}, config as any))
+          .generate(code || '')
+          .then((result) => {
+            const match = result.getLayers().match(/\/\*\s*layer:\s*default\s*\*\/\n(.*)/s)
+            if (!match)
+              return
+            const css = match[1]
+            css.split('}\n').forEach((s) => {
+              if (!styles.includes(s))
+                styles += `${css}} `
+            })
           })
-        })
       },
     },
   ]
